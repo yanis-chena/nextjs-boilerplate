@@ -6,9 +6,14 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: [
+          // ✅ Supprime X-Frame-Options (incompatible avec l'embed SharePoint)
+          // X-Frame-Options: ALLOWALL n'est pas une valeur standard reconnue par les navigateurs
+
+          // ✅ CSP frame-ancestors : standard moderne pour autoriser les iframes
+          // Remplace "helpline.sharepoint.com" par ton vrai domaine SharePoint si différent
           {
-            key: "X-Frame-Options",
-            value: "ALLOWALL",
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self' https://helpline.sharepoint.com",
           },
         ],
       },
