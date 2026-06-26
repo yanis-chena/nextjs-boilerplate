@@ -35,12 +35,13 @@ export const MOCK_DATA = [
   {
     id: 4,
     titre: "Consigne GanPat",
-    reference: "Consigne",
-    entite: "GanPat",
-    consigne: "BLABLA",
-    dateCreation: null,
+    reference: "INC4661182",
+    entite: "Toutes populations",
+    consigne: `Toutes populations sauf GAN ASS /!\ - 
+Windows 11 / Appli appx (outils capture, paint ...) KO - Erreur C:\Program [...] I .8_8000.879.201 n'est pas conçu pour s'exécuter sous Windows [...] État de l'erreur : 0x0000020`,
+    dateCreation: "26/06/2026",
     dateModification: "2026-06-15",
-    type: "consigne",
+    type: "incident",
   },
   {
     id: 5,

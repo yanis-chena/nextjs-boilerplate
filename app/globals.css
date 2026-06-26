@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Old+Turkic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
 @import "tailwindcss";
 @import "tailwindcss-animated";
 
@@ -16,10 +17,12 @@
   
 }
 
-.noto-sans-old-turkic-regular {
-  font-family: "Noto Sans Old Turkic", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+
+.space-grotesk-2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: bold;
 }
 
 @media (prefers-color-scheme: dark) {

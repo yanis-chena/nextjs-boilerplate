@@ -78,14 +78,14 @@ function ListeConsignes({
 function ConsignePopup({ item, onClose }: { item: Item; onClose: () => void }) {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-hidden"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
       {/* Fond sombre + glow radial vert */}
-      <div className="absolute inset-0 bg-oklch(26.6% 0.065 152.934) backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[oklch(26.6%_0.065_152.934)] backdrop-blur-md" />
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -98,7 +98,7 @@ function ConsignePopup({ item, onClose }: { item: Item; onClose: () => void }) {
       />
 
       <motion.div
-        className="relative w-full h-auto max-w-5xl max-h-5xl overflow-auto rounded-2xl shadow-2xl break-words"
+        className="relative w-full my-8 max-w-5xl max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl break-words"
         initial={{ opacity: 0, scale: 0.92, y: 24 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.92, y: 24 }}
@@ -180,9 +180,11 @@ export default function Home() {
 
   return (
     <div className="h-[50rem] underline underline-offset-4 relative text-2xl flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-20 px-4 ">
-      <TextRoll className=" w-full text-center  text-6xl text-[#0a6e46] font-bold mb-6 ">
-        CONSIGNES & INCIDENTS
-      </TextRoll>
+      <TextRoll 
+      className="font-display w-full text-center text-7xl font-extrabold tracking-tight mb-6 "
+      >
+  CONSIGNES & INCIDENTS
+</TextRoll>
       <Tabs tabs={tabs} />
 
       <AnimatePresence>
