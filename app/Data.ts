@@ -67,7 +67,30 @@ export const MOCK_DATA = [
     titre: "Consigne GanPat",
     reference: "Consigne",
     entite: "GanPat",
-    consigne: "BLABLA",
+    consigne: `Certains incidents connus peuvent se résoudre au PISVP par une solution communiquée par G2S.
+
+
+¤  Incident : 
+Impossible d'enregistrer les mots de passe/favoris dans EDGE 130
+
+Solution : 
+Une mise à jour corrective et pérenne sera automatiquement intégrée lors de la prochaine mise à jour EDGE prévue à partir de mars, garantissant la stabilité du service. SSOX ne sera plus actif après la version, il sera alors possible de le désinstaller et de mettre à jour EDGE vers la 146.
+---------------------------------------------------------
+
+¤ Incident :
+W11 - Dysfonctionnement barre des tâches / menu démarrer (Epingle impossible..)
+Solution :
+Nous vous informons que les dysfonctionnements identifiés que vous rencontrez, seront corrigés avec la prochaine montée de version Windows en 25h2 prévue sur l'année 2026. Malgré nos analyses menées conjointement avec le support Microsoft, il n'a pas été possible de résoudre ce dysfonctionnement dans l'immédiat. Celui-ci sera toutefois pleinement pris en charge par le nouveau correctif Windows.
+Votre incident est donc clôturé, tout en restant attentifs à son bon fonctionnement d'ici le déploiement. N'hésitez pas à revenir vers nous en cas de besoin.
+---------------------------------------------------------
+¤ Incident :
+EDGE / Chrome - Votre administrateur a désactivé la synchronisation
+Solution : 
+Pour EDGE : 
+Ces incidents sont liés à la version trop ancienne du navigateur Edge (en version 130).
+Il faudra attendre la version supérieure qui sera déployée courant mars quand SSOX sera décommissionné car c'est SSOX qui fait que l'on ne peut pour l'instant pas mettre à jour les navigateurs Edge (incompatibilité de performances).
+
+Pour Chrome : ~Bientôt~ `,
     dateCreation: null,
     dateModification: "2026-06-15",
     type: "consigne",

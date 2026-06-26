@@ -98,7 +98,7 @@ function ConsignePopup({ item, onClose }: { item: Item; onClose: () => void }) {
       />
 
       <motion.div
-        className="relative w-full max-w-5xl max-h-5xl overflow-auto rounded-2xl shadow-2xl break-words"
+        className="relative w-full h-auto max-w-5xl max-h-5xl overflow-auto rounded-2xl shadow-2xl break-words"
         initial={{ opacity: 0, scale: 0.92, y: 24 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.92, y: 24 }}
@@ -180,7 +180,7 @@ export default function Home() {
 
   return (
     <div className="h-[50rem] underline underline-offset-4 relative text-2xl flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-20 px-4 ">
-      <TextRoll className=" w-full text-center  text-5xl text-[#0a6e46] font-bold mb-6 ">
+      <TextRoll className=" w-full text-center  text-6xl text-[#0a6e46] font-bold mb-6 ">
         CONSIGNES & INCIDENTS
       </TextRoll>
       <Tabs tabs={tabs} />
