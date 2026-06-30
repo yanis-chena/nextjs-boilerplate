@@ -4,9 +4,9 @@
 export const MOCK_DATA = [
   {
     id: 1,
-    titre: "Consigne générale populations",
+    titre: `GGVIE - DISQUE "C" saturé en cause application ALIZE`,
     reference: "Consigne",
-    entite: "Toutes populations",
+    entite: "GGVIE",
     consigne: "Consigne TEST\n\nSuivre les KB\n\nPrévenir lors d'IG\n\nSoyez gentils tout plein",
     dateCreation: "2026-06-09",
     dateModification: "2026-06-15",
@@ -14,9 +14,9 @@ export const MOCK_DATA = [
   },
   {
     id: 2,
-    titre: "Incident GanAss",
-    reference: "INC151515",
-    entite: "GanAss",
+    titre: "GAC / VDI / Accés suite Office impossible",
+    reference: "INC44569133",
+    entite: "GAC",
     consigne: "Rattacher à l'incident et appliquer la méthode de contournement",
     dateCreation: "2026-06-11",
     dateModification: "2026-06-15",
@@ -24,7 +24,7 @@ export const MOCK_DATA = [
   },
   {
     id: 3,
-    titre: "Incident GMED",
+    titre: "GMED",
     reference: "INC262626",
     entite: "GMED",
     consigne: "Rattacher l'incident",
@@ -34,7 +34,7 @@ export const MOCK_DATA = [
   },
   {
     id: 4,
-    titre: "Consigne GanPat",
+    titre: " GanPat",
     reference: "INC4661182",
     entite: "Toutes populations",
     consigne: `Toutes populations sauf GAN ASS /!\ - 
@@ -45,7 +45,7 @@ Windows 11 / Appli appx (outils capture, paint ...) KO - Erreur C:\Program [...]
   },
   {
     id: 5,
-    titre: "Consigne GanPat",
+    titre: " GanPat",
     reference: "Consigne",
     entite: "GanPat",
     consigne: "BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA ",
@@ -65,7 +65,7 @@ Windows 11 / Appli appx (outils capture, paint ...) KO - Erreur C:\Program [...]
   },
   {
     id: 7,
-    titre: "Consigne GanPat",
+    titre: " GanPat",
     reference: "Consigne",
     entite: "GanPat",
     consigne: `Certains incidents connus peuvent se résoudre au PISVP par une solution communiquée par G2S.

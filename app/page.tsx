@@ -12,7 +12,6 @@ type Item = (typeof MOCK_DATA)[number];
 const TYPE_STYLES: Record<string, string> = {
   consigne: "bg-emerald-400/20 text-emerald-200 border-emerald-300/30",
   incident: "bg-orange-400/20 text-orange-200 border-orange-300/30",
-  aide: "bg-sky-400/20 text-sky-200 border-sky-300/30",
 };
 
 function Badge({ type }: { type?: string }) {
@@ -22,7 +21,7 @@ function Badge({ type }: { type?: string }) {
 
   return (
     <span
-      className={`shrink-0 inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${style}`}
+      className={`shrink-0 inline-block text-2xs font-medium px-2 py-0.5 rounded-full border ${style}`}
     >
       {label}
     </span>
@@ -58,16 +57,13 @@ function ListeConsignes({
             transition-all duration-300
           "
         >
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="font-bold text-lg">{item.titre}</h2>
+          <div className="grid grid-cols-[1fr_2fr_auto] items-center gap-4">
+            <p className="text-3sm text-white/90">
+              {item.dateCreation} · {item.entite} · {item.reference}
+            </p>
+            <h2 className="font-bold text-lg truncate">{item.titre}</h2>
             <Badge type={item.type} />
           </div>
-          <p className="text-sm text-white/70 mt-1">
-            {item.reference} · {item.entite}
-          </p>
-          <p className="text-sm mt-2 text-white/90 line-clamp-2 break-words">
-            {item.consigne.split("\n")[0]}
-          </p>
         </motion.button>
       ))}
     </div>
@@ -179,19 +175,85 @@ export default function Home() {
   ];
 
   return (
-    <div className="h-[50rem] underline underline-offset-4 relative text-2xl flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-20 px-4 ">
-      <TextRoll 
-      className="font-display w-full text-center text-7xl font-extrabold tracking-tight mb-6 "
-      >
-  CONSIGNES & INCIDENTS
-</TextRoll>
-      <Tabs tabs={tabs} />
+    <div className="relative">
+      {/* Logos */}
+      <img
+        src="/EverienceHelplineLogo.jpg"
+        alt="Helpline by everience"
+        className="absolute top-0 left-0 h-12 w-32 sm:h-20 sm:w-52 md:h-30 md:w-80"
+      />
+      <img
+        src="/GroupamaLogo.png"
+        alt="Logo Groupama"
+        className="absolute top-0 right-0 h-12 w-32 sm:h-24 sm:w-52 md:h-38 md:w-80"
+      />
 
-      <AnimatePresence>
-        {selected && (
-          <ConsignePopup item={selected} onClose={() => setSelected(null)} />
-        )}
-      </AnimatePresence>
+      <div className="h-[80rem] relative flex flex-col max-w-7xl mx-auto w-full items-start justify-start mt-10 px-4">
+        {/* Titre */}
+        <div className="w-full flex justify-center mb-8 pt-16 sm:pt-12 md:pt-0">
+          <TextRoll className="font-display text-center text-4xl md:text-6xl font-extrabold tracking-tight">
+            CONSIGNES & INCIDENTS
+          </TextRoll>
+        </div>
+        <div className="max-w-6xl w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-xl">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-3xl">📢</span>
+            <h2 className="text-2xl font-bold text-emerald-300">
+              Demande d'aide
+            </h2>
+          </div>
+          <div className="space-y-4 text-lg text-emerald-100/80 leading-relaxed">
+            <p>
+              Avant toute sollicitation,{" "}
+              <span className="font-semibold text-white">
+                consultez la base de connaissance
+              </span>{" "}
+              puis privilégiez le{" "}
+              <span className="font-semibold text-white">
+                canal Teams nominatif
+              </span>
+              .
+            </p>
+            <div className="rounded-xl bg-black/20 p-4">
+              <p className="font-semibold text-emerald-300 mb-2">
+                Vérification du statut Genesys :
+              </p>
+
+              <ul className="space-y-2">
+                <li>
+                  🟢{" "}
+                  <span className="font-semibold" style={{ color: "#fd6bda" }}>
+                    Busy Teams Support
+                  </span>{" "}
+                  : référent(e) ou backup disponible en aide volante.
+                </li>
+
+                <li>
+                  🔴{" "}
+                  <span className="font-semibold" style={{ color: "#ffb200" }}>
+                    Busy
+                  </span>{" "}
+                  : référent(e) déjà mobilisé(e) sur une autre activité.
+                </li>
+              </ul>
+            </div>
+            <p>Si aucun(e) référent(e) n'est disponible, vous pouvez :</p>
+            <ul className="space-y-2 ml-4">
+              <li>💬 Poser votre question dans la conversation d'équipe.</li>
+              <li>
+                📋 Ajouter votre incident dans le backlog PISVP afin de le
+                reprendre ultérieurement.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <Tabs tabs={tabs} />
+        <AnimatePresence>
+          {selected && (
+            <ConsignePopup item={selected} onClose={() => setSelected(null)} />
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
