@@ -81,7 +81,7 @@ function ConsignePopup({ item, onClose }: { item: Item; onClose: () => void }) {
       onClick={onClose}
     >
       {/* Fond sombre + glow radial vert */}
-      <div className="absolute inset-0 bg-[oklch(26.6%_0.065_152.934)] backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[oklch(15.3% 0.006 107.1)] backdrop-blur-md" />
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
