@@ -4,7 +4,7 @@
 export const MOCK_DATA = [
   {
     id: 1,
-    titre: `GGVIE - DISQUE "C" saturé en cause application ALIZE`,
+    titre: `GAN ASS / WINDOWS / Arrêt impossible via le menu démarrer `,
     reference: "Consigne",
     entite: "GGVIE",
     consigne: "Consigne TEST\n\nSuivre les KB\n\nPrévenir lors d'IG\n\nSoyez gentils tout plein",

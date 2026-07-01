@@ -36,9 +36,13 @@ function ListeConsignes({
   type?: "consigne" | "incident";
   onSelect: (item: Item) => void;
 }) {
-  const items = type
-    ? MOCK_DATA.filter((item) => item.type === type)
-    : MOCK_DATA;
+  const items = (
+    type ? MOCK_DATA.filter((item) => item.type === type) : MOCK_DATA
+  ).sort((a, b) => {
+    if (!a.dateCreation) return 1;   // null → fin de liste
+    if (!b.dateCreation) return -1;
+    return b.dateCreation.localeCompare(a.dateCreation); // décroissant
+  });
 
   return (
     <div className="w-full h-full no-visible-scrollbar overflow-auto rounded-2xl p-6 bg-gradient-to-br from-[#005f4b] via-[#003d30] to-[#001f19]">
@@ -185,7 +189,7 @@ export default function Home() {
       <img
         src="/GroupamaLogo.png"
         alt="Logo Groupama"
-        className="absolute top-0 right-0 h-12 w-32 sm:h-24 sm:w-52 md:h-38 md:w-80"
+        className="absolute top-0 right-0 h-12 w-32 z-10 sm:h-24 sm:w-52 md:h-30 md:w-80"
       />
 
       <div className="h-[80rem] relative flex flex-col max-w-7xl mx-auto w-full items-start justify-start mt-10 px-4">
@@ -195,7 +199,7 @@ export default function Home() {
             CONSIGNES & INCIDENTS
           </TextRoll>
         </div>
-        <div className="max-w-6xl w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-xl">
+        <div className="max-w-7xl w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-xl">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">📢</span>
             <h2 className="text-2xl font-bold text-emerald-300">
