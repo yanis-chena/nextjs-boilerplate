@@ -199,7 +199,7 @@ export default function Home() {
             CONSIGNES & INCIDENTS
           </TextRoll>
         </div>
-        <div className="max-w-7xl w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-xl">
+        <div className="max-w-7xl w-full h-[60rem] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-xl">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">📢</span>
             <h2 className="text-2xl font-bold text-emerald-300">
