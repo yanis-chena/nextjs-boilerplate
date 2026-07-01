@@ -4,11 +4,11 @@
 export const MOCK_DATA = [
   {
     id: 1,
-    titre: `GAN ASS / WINDOWS / Arrêt impossible via le menu démarrer `,
-    reference: "Consigne",
-    entite: "GGVIE",
-    consigne: "Consigne TEST\n\nSuivre les KB\n\nPrévenir lors d'IG\n\nSoyez gentils tout plein",
-    dateCreation: "2026-06-09",
+    titre: `GMED - Mobil ITI / Impossible d'émettre ou de réceptionner un appel sur l'application`,
+    reference: "INC4670206",
+    entite: "GMED",
+    consigne: "-",
+    dateCreation: "01/07/2026",
     dateModification: "2026-06-15",
     type: "consigne",
   },
