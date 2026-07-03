@@ -159,7 +159,7 @@ function ConsignePopup({ item, onClose }: { item: Item; onClose: () => void }) {
 // ─── Page principale ──────────────────────────────────────────────────────────
 export default function Home() {
   const [selected, setSelected] = useState<Item | null>(null);
-
+  const [aideOuverte, setAideOuverte] = useState(false);
   const tabs = [
     {
       title: "Tous",
@@ -192,66 +192,74 @@ export default function Home() {
         className="absolute top-0 right-0 h-12 w-32 z-10 sm:h-24 sm:w-52 md:h-30 md:w-80"
       />
 
-      <div className="h-[80rem] relative flex flex-col max-w-7xl mx-auto w-full items-start justify-start mt-10 px-4">
+      <div className="relative flex flex-col max-w-7xl mx-auto w-full items-start justify-start mt-10 px-4">
         {/* Titre */}
-        <div className="w-full flex justify-center mb-8 pt-16 sm:pt-12 md:pt-0">
+        <div className=" w-full flex justify-center mb-8 pt-16 sm:pt-12 md:pt-0">
           <TextRoll className="font-display text-center text-4xl md:text-6xl font-extrabold tracking-tight">
             CONSIGNES & INCIDENTS
           </TextRoll>
         </div>
-        <div className="max-w-7xl w-full h-[60rem] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-xl">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📢</span>
-            <h2 className="text-2xl font-bold text-emerald-300">
-              Demande d'aide
-            </h2>
-          </div>
-          <div className="space-y-4 text-lg text-emerald-100/80 leading-relaxed">
-            <p>
-              Avant toute sollicitation,{" "}
-              <span className="font-semibold text-white">
-                consultez la base de connaissance
-              </span>{" "}
-              puis privilégiez le{" "}
-              <span className="font-semibold text-white">
-                canal Teams nominatif
-              </span>
-              .
-            </p>
-            <div className="rounded-xl bg-black/20 p-4">
-              <p className="font-semibold text-emerald-300 mb-2">
-                Vérification du statut Genesys :
-              </p>
+        <div className="max-w-7xl w-full rounded-2xl border border-emerald-200 bg-emerald-50 shadow-sm overflow-hidden">
+  {/* En-tête cliquable — toujours visible */}
+  <button
+    onClick={() => setAideOuverte((v) => !v)}
+    className="w-full flex items-center justify-between gap-3 px-6 py-4 hover:bg-emerald-100 transition-colors duration-200"
+  >
+    <div className="flex items-center gap-3">
+      <span className="text-xl">📢</span>
+      <h2 className="text-2xl font-bold text-emerald-700">Demande d'aide aux référentes et référents </h2>
+    </div>
+    <motion.span
+      animate={{ rotate: aideOuverte ? 180 : 0 }}
+      transition={{ duration: 0.25 }}
+      className="text-emerald-500 text-sm"
+    >
+      ▼
+    </motion.span>
+  </button>
 
-              <ul className="space-y-2">
-                <li>
-                  🟢{" "}
-                  <span className="font-semibold" style={{ color: "#fd6bda" }}>
-                    Busy Teams Support
-                  </span>{" "}
-                  : référent(e) ou backup disponible en aide volante.
-                </li>
-
-                <li>
-                  🔴{" "}
-                  <span className="font-semibold" style={{ color: "#ffb200" }}>
-                    Busy
-                  </span>{" "}
-                  : référent(e) déjà mobilisé(e) sur une autre activité.
-                </li>
-              </ul>
-            </div>
-            <p>Si aucun(e) référent(e) n'est disponible, vous pouvez :</p>
-            <ul className="space-y-2 ml-4">
-              <li>💬 Poser votre question dans la conversation d'équipe.</li>
+  {/* Contenu animé */}
+  <AnimatePresence initial={false}>
+    {aideOuverte && (
+      <motion.div
+        key="aide-content"
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="overflow-hidden"
+      >
+        <div className="px-6 pb-6 space-y-4 text-base text-gray-600 leading-relaxed border-t border-emerald-200">
+          <p className="pt-4">
+            Avant toute sollicitation,{" "}
+            <span className="font-semibold text-gray-900">consultez la base de connaissance</span>{" "}
+            puis privilégiez le{" "}
+            <span className="font-semibold text-gray-900">canal Teams nominatif</span>.
+          </p>
+          <div className="rounded-xl bg-white border border-emerald-100 p-4">
+            <p className="font-semibold text-emerald-700 mb-2">Vérification du statut Genesys :</p>
+            <ul className="space-y-2">
               <li>
-                📋 Ajouter votre incident dans le backlog PISVP afin de le
-                reprendre ultérieurement.
+                🟢 <span className="font-semibold text-pink-500">Busy Teams Support</span> : référent(e) ou backup disponible en aide volante.
+              </li>
+              <li>
+                🔴 <span className="font-semibold text-amber-500">Busy</span> : référent(e) déjà mobilisé(e) sur une autre activité.
               </li>
             </ul>
           </div>
+          <p>Si aucun(e) référent(e) n'est disponible, vous pouvez :</p>
+          <ul className="space-y-2 ml-4">
+            <li>💬 Poser votre question dans la conversation d'équipe.</li>
+            <li>📋 Ajouter votre incident dans le backlog PISVP afin de le reprendre ultérieurement.</li>
+          </ul>
         </div>
-        <Tabs tabs={tabs} />
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
+        <div className="w-full h-[40rem]">
+  <Tabs tabs={tabs} />
+</div>
         <AnimatePresence>
           {selected && (
             <ConsignePopup item={selected} onClose={() => setSelected(null)} />
