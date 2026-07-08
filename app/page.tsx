@@ -263,7 +263,7 @@ export default function Home() {
     )}
   </AnimatePresence>
 </div>
-        <div className="w-full h-[40rem]">
+        <div className="w-full min-h-[20rem] pb-10 ">
   <Tabs tabs={tabs} />
 </div>
         <AnimatePresence>

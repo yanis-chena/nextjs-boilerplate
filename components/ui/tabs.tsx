@@ -40,7 +40,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          " flex flex-row items-center bg-black/10 justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full mt-10 p-3 rounded-full ",
+          " flex flex-row items-center bg-black/10 justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full mt-8  rounded-full ",
           containerClassName,
         )}
       >
@@ -52,7 +52,8 @@ export const Tabs = ({
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative  px-5 py-2 rounded-full", tabClassName)}
+            //style de l'ombre des titres de tabs 
+            className={cn("relative px-5 py-3 rounded-full", tabClassName)}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -100,7 +101,7 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full h-full ">
+    <div className="relative w-full min-h-[40rem]">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
