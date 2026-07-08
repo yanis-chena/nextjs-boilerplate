@@ -180,11 +180,10 @@ export default function Home() {
   ];
 
   return (
-    <ScalesContainer
+  <ScalesContainer
   orientation="diagonal"
   size={10}
-
-  containerClassName="relative min-h-screen"
+  containerClassName="relative h-auto min-h-dvh"
   className="opacity-70"
 >
       {/* Logos */}
@@ -196,21 +195,21 @@ export default function Home() {
       <img
         src="/GroupamaLogo.png"
         alt="Logo Groupama"
-        className="absolute top-0 right-0 h-12 w-32 z-10 sm:h-24 sm:w-52 md:h-30 md:w-80"
+        className="absolute top-0 right-0 h-12 w-32 sm:h-24 sm:w-52 md:h-30 md:w-80"
       />
 
-      <div className="relative flex flex-col max-w-7xl mx-auto w-full items-start justify-start  mt-10 px-4">
+      <div className="relative flex flex-col max-w-7xl mx-auto w-full items-start justify-start mt-1 px-4">
         {/* Titre */}
-        <div className=" w-full flex justify-center mb-8 pt-16 sm:pt-12 md:pt-0">
-          <TextRoll className="font-display text-center text-4xl md:text-6xl font-extrabold tracking-tight">
+        <div className=" w-full flex justify-center mb-16 pt-16 sm:pt-12 md:pt-0">
+          <TextRoll className="font-display text-center mt-10 text-4xl md:text-6xl font-extrabold tracking-tight">
             CONSIGNES & INCIDENTS
           </TextRoll>
         </div>
-        <div className=" max-w-7xl w-full rounded-2xl border border-emerald-200 bg-emerald-50 shadow-sm overflow-hidden">
+        <div className=" max-w-7xl  w-full rounded-2xl border border-emerald-200 bg-emerald-50 shadow-sm overflow-hidden ">
   {/* En-tête cliquable — toujours visible */}
   <button
     onClick={() => setAideOuverte((v) => !v)}
-    className="w-full flex items-center justify-between gap-3 px-6 py-4 hover:bg-emerald-100 transition-colors duration-200"
+    className="w-full flex items-center justify-between  gap-3 px-6 py-4 hover:bg-emerald-100 transition-colors duration-200"
   >
     <div className=" flex items-center gap-3">
       <span className="text-xl">📢</span>

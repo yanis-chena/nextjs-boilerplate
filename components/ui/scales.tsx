@@ -29,7 +29,7 @@ export const Scales = ({
   return (
     <div
       className={cn(
-        "absolute inset-0 h-full w-full overflow-hidden",
+        "fixed inset-0 h-full w-full overflow-hidden pointer-events-none",
         "[--pattern-scales:var(--color-neutral-950)]/10",
         "dark:[--pattern-scales:var(--color-white)]/10",
         className,
