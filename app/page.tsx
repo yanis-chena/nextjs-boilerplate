@@ -46,7 +46,7 @@ function ListeConsignes({
   });
 
   return (
-    <div className="w-full h-full no-visible-scrollbar overflow-auto rounded-2xl p-6 bg-gradient-to-br from-[#005f4b] via-[#003d30] to-[#001f19]">
+    <div className="w-full h-full no-visible-scrollbar overflow-auto rounded-2xl p-6 bg-gradient-to-br from-[#28AAB8] via-[#86AEDA] to-[#112B77]">
       {items.map((item) => (
         <motion.button
           key={item.id}
@@ -263,7 +263,7 @@ export default function Home() {
     )}
   </AnimatePresence>
 </div>
-        <div className="w-full min-h-[20rem] pb-10 ">
+        <div className="w-full min-h-[30rem] pb-10 ">
   <Tabs tabs={tabs} />
 </div>
         <AnimatePresence>
